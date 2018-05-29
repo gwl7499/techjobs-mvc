@@ -39,21 +39,23 @@
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
 
-        <div th:each="job : ${jobs}">
+        <span th:each="job : ${jobs}">
+            <table align="center">
         <div th:each="j : ${job}">
-            <table>
+
 
                 <tr>
 
-                 <td th:text="${j.key}"></td>
+                 <th th:text="${j.key}"></th>
                  <td th:text="${j.value}"></td>
                 </tr>
 
-            </table>
+
         </div>
+            </table>
     <hr />
 
-</div>
+</span>
 
 </body>
 </html>
