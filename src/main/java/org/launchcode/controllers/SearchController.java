@@ -31,9 +31,16 @@ public class SearchController {
 
 
         if (searchType.equals("all")) {
+            if (searchTerm.isEmpty()) {
+                ArrayList<HashMap<String, String>> jobs = JobData.findAll();
+                model.addAttribute("jobs", jobs);
+                return "search";
+
+            }else {
                 ArrayList<HashMap<String, String>> jobs = JobData.findByValue(searchTerm);
                 model.addAttribute("jobs", jobs);
                 return "search";
+            }
 
 
         }else{

@@ -37,25 +37,29 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <div  th:fragment="job-fields">
+
+        <div th:each="job : ${jobs}">
+            <table align="center" width="1000">
+                <div th:each="jEntry : ${job}">
 
 
-        <span th:each="job : ${jobs}">
-            <table align="center">
-        <div th:each="j : ${job}">
+                   <tr>
+
+                       <th th:text="${#strings.capitalizeWords(jEntry.key)}"></th>
+
+                       <td th:text="${jEntry.value}" align="right"></td>
+
+                   </tr>
 
 
-                <tr>
-
-                 <th th:text="${j.key}"></th>
-                 <td th:text="${j.value}"></td>
-                </tr>
-
+                </div>
+            </table>
+        <hr />
 
         </div>
-            </table>
-    <hr />
+    </div>
 
-</span>
 
 </body>
 </html>
